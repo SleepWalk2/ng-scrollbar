@@ -9,7 +9,8 @@ angular.module('ngScrollbar', []).directive('ngScrollbar', [
       replace: true,
       transclude: true,
       scope:{
-        'showYScrollbar': '=?isBarShown'
+        'showYScrollbar': '=?isBarShown',
+        'wheelSpeed': '=wheelSpeed'
       },
       link: function(scope, element, attrs) {
 
@@ -83,7 +84,7 @@ angular.module('ngScrollbar', []).directive('ngScrollbar', [
 
         var wheelHandler = function(event) {
 
-          var wheelSpeed = 40;
+          var wheelSpeed = scope.wheelSpeed || 40;
 
           // Mousewheel speed normalization approach adopted from
           // http://stackoverflow.com/a/13650579/1427418
